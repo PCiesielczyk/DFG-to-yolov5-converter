@@ -21,8 +21,8 @@ def convert(dfg_labels_grouped: dict[str, list[DFGLabel]]) -> list[YOLOv5Label]:
             dfg_width = dfg_label.bbox[2]
             dfg_height = dfg_label.bbox[3]
 
-            x_center = (dfg_x + dfg_width) / 2
-            y_center = (dfg_y + dfg_height) / 2
+            x_center = dfg_x + (dfg_width / 2)
+            y_center = dfg_y + (dfg_height / 2)
 
             x_center_normalized = x_center / dfg_label.image.width
             y_center_normalized = y_center / dfg_label.image.height
