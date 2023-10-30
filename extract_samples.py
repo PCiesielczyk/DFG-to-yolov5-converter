@@ -16,14 +16,10 @@ arg = parser.parse_args()
 if arg.images_dir is None or arg.data_desc is None:
     logging.error("Argument --images_dir or --data_desc not specified")
 else:
-    # images_dir_path = arg.images_dir
-    # data_desc_path = arg.data_desc
-    images_dir_path = "C:\\Users\\piotr\\Desktop\\thesis\\TSD\\datasets\\DFG\\images\\train"
-    data_desc_path = "C:\\Users\\piotr\\Desktop\\thesis\\TSD\\DFG-tsd-annot-json\\train.json"
+    images_dir_path = arg.images_dir
+    data_desc_path = arg.data_desc
     dfg_dataset = DFGDataset(data_desc_path)
-images_dir_path = "C:\\Users\\piotr\\Desktop\\thesis\\TSD\\datasets\\DFG\\images\\all"
-data_desc_path = "C:\\Users\\piotr\\Desktop\\thesis\\TSD\\DFG-tsd-aug-annot-json\\train.json"
-dfg_dataset = DFGDataset(data_desc_path)
+
 output_dir = 'output'
 output_dir_path = os.path.join(os.getcwd(), output_dir)
 
