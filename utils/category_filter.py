@@ -1,11 +1,16 @@
+import os
+
+
 def forbidden_classes_ids(classnames_file_path: str, forbidden_classnames_file_path: str) -> list[int]:
+    output = []
+
+    if not (os.path.isfile(classnames_file_path) and os.path.isfile(forbidden_classnames_file_path)):
+        return output
     classnames_file = open(classnames_file_path, 'r')
     classnames_lines = classnames_file.read().splitlines()
 
     forbidden_classnames_file = open(forbidden_classnames_file_path, 'r')
     forbidden_classnames = forbidden_classnames_file.read().splitlines()
-
-    output = []
 
     for classnames_line in classnames_lines:
         classname_line_split = classnames_line.split(' ')
